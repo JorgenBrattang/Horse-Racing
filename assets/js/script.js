@@ -24,7 +24,79 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function changeActive(num) {
-    buttonChange = document.getElementsByClassName('horse-select--btn')[num];
-    buttonChange.children[0].innerText = 'Good LUCK!';
-    buttonChange.classList.add("active");
+    
+    if(num === 0) {
+        buttonChange = document.getElementsByClassName('horse-select--btn')[num];
+        buttonChange.children[0].innerText = 'Good Luck';
+        buttonChange.classList.add("active");
+        resetActive(num);
+    } 
+    else if (num === 1){
+        buttonChange = document.getElementsByClassName('horse-select--btn')[num];
+        buttonChange.children[0].innerText = 'Good Luck';
+        buttonChange.classList.add("active");
+        resetActive(num);
+    }
+    else if (num === 2){
+        buttonChange = document.getElementsByClassName('horse-select--btn')[num];
+        buttonChange.children[0].innerText = 'Good Luck';
+        buttonChange.classList.add("active");
+        resetActive(num);
+    }
+    else {
+        buttonChange = document.getElementsByClassName('horse-select--btn')[num];
+        buttonChange.children[0].innerText = 'Good Luck';
+        buttonChange.classList.add("active");
+        resetActive(num);
+    }
+
+}
+
+/*
+Want to make an if that checks if the number is not the same as changeActive function to 
+reset all the other onces.
+
+if num is 0 then reset 1,2,3
+
+if num is 1 then reset 0,2,3
+
+if num is 2 then reset 0,1,3
+
+if num is 3 then reset 0,1,2
+
+*/
+
+function resetActive(num) {
+    if(num === 0) {
+        numbers = [1,2,3];
+        for (number of numbers) {
+            buttonChange = document.getElementsByClassName('horse-select--btn')[number];
+            buttonChange.children[0].innerText = 'Select ME!';
+            buttonChange.classList.remove("active");
+        }
+    } 
+    else if (num === 1){
+        numbers = [0,2,3];
+        for (number of numbers) {
+            buttonChange = document.getElementsByClassName('horse-select--btn')[number];
+            buttonChange.children[0].innerText = 'Select ME!';
+            buttonChange.classList.remove("active");
+        }
+    }
+    else if (num === 2){
+        numbers = [0,1,3];
+        for (number of numbers) {
+            buttonChange = document.getElementsByClassName('horse-select--btn')[number];
+            buttonChange.children[0].innerText = 'Select ME!';
+            buttonChange.classList.remove("active");
+        }
+    }
+    else {
+        numbers = [0,1,2];
+        for (number of numbers) {
+            buttonChange = document.getElementsByClassName('horse-select--btn')[number];
+            buttonChange.children[0].innerText = 'Select ME!';
+            buttonChange.classList.remove("active");
+        }
+    }
 }
