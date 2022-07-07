@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Gets all the button from the tag name button from the DOM
-    let buttons = document.getElementsByTagName("button");
+    const buttons = document.getElementsByTagName("button");
 
-    for (let button of buttons) {
+    for (const button of buttons) {
         button.addEventListener("click", function() {
             if (this.getAttribute("data-type") === "brown") {
                 changeActive(0);
@@ -20,9 +20,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 alert("button doesn't choose a data-type, look that up!")
             }
         })
-    }
+    }   
 });
 
+/**
+ * Changes the active class on the selected button.
+ */
 function changeActive(num) {
     
     if(num === 0) {
