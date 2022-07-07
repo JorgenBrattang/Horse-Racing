@@ -26,77 +26,74 @@ document.addEventListener("DOMContentLoaded", function() {
 function changeActive(num) {
     
     if(num === 0) {
-        buttonChange = document.getElementsByClassName('horse-select--btn')[num];
-        buttonChange.children[0].innerText = 'Good Luck';
-        buttonChange.classList.add("active");
+        targetButton = document.getElementsByClassName('horse-select--btn')[num];
+        activeButton();
         resetActive(num);
     } 
     else if (num === 1){
-        buttonChange = document.getElementsByClassName('horse-select--btn')[num];
-        buttonChange.children[0].innerText = 'Good Luck';
-        buttonChange.classList.add("active");
+        targetButton = document.getElementsByClassName('horse-select--btn')[num];
+        activeButton();
         resetActive(num);
     }
     else if (num === 2){
-        buttonChange = document.getElementsByClassName('horse-select--btn')[num];
-        buttonChange.children[0].innerText = 'Good Luck';
-        buttonChange.classList.add("active");
+        targetButton = document.getElementsByClassName('horse-select--btn')[num];
+        activeButton();
         resetActive(num);
     }
     else {
-        buttonChange = document.getElementsByClassName('horse-select--btn')[num];
-        buttonChange.children[0].innerText = 'Good Luck';
-        buttonChange.classList.add("active");
+        targetButton = document.getElementsByClassName('horse-select--btn')[num];
+        activeButton();
         resetActive(num);
     }
 
 }
 
-/*
-Want to make an if that checks if the number is not the same as changeActive function to 
-reset all the other onces.
-
-if num is 0 then reset 1,2,3
-
-if num is 1 then reset 0,2,3
-
-if num is 2 then reset 0,1,3
-
-if num is 3 then reset 0,1,2
-
-*/
-
+/**
+ * Checks the horse number selected and resets the button to its original value
+ */
 function resetActive(num) {
     if(num === 0) {
         numbers = [1,2,3];
         for (number of numbers) {
-            buttonChange = document.getElementsByClassName('horse-select--btn')[number];
-            buttonChange.children[0].innerText = 'Select ME!';
-            buttonChange.classList.remove("active");
+            targetButton = document.getElementsByClassName('horse-select--btn')[number];
+            resetButton();
         }
     } 
     else if (num === 1){
         numbers = [0,2,3];
         for (number of numbers) {
-            buttonChange = document.getElementsByClassName('horse-select--btn')[number];
-            buttonChange.children[0].innerText = 'Select ME!';
-            buttonChange.classList.remove("active");
+            targetButton = document.getElementsByClassName('horse-select--btn')[number];
+            resetButton();
         }
     }
     else if (num === 2){
         numbers = [0,1,3];
         for (number of numbers) {
-            buttonChange = document.getElementsByClassName('horse-select--btn')[number];
-            buttonChange.children[0].innerText = 'Select ME!';
-            buttonChange.classList.remove("active");
+            targetButton = document.getElementsByClassName('horse-select--btn')[number];
+            resetButton();
         }
     }
     else {
         numbers = [0,1,2];
         for (number of numbers) {
-            buttonChange = document.getElementsByClassName('horse-select--btn')[number];
-            buttonChange.children[0].innerText = 'Select ME!';
-            buttonChange.classList.remove("active");
+            targetButton = document.getElementsByClassName('horse-select--btn')[number];
+            resetButton();
         }
     }
+}
+
+/**
+ * Changes the buttons innerText to Good Luck! and adds the active class
+ */
+ function activeButton() {
+    targetButton.children[0].innerText = 'Good Luck';
+    targetButton.classList.add("active");
+}
+
+/**
+ * Changes the buttons innerText to Select ME! and removes the active class
+ */
+function resetButton() {
+    targetButton.children[0].innerText = 'Select ME!';
+    targetButton.classList.remove("active");
 }
