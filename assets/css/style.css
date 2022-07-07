@@ -9,7 +9,6 @@ body {
     font-size: 16px;
     line-height: 1.5;
     color: rgb(240, 234, 232);
-    background: #1d1d1d;
 }
 
 header {
@@ -30,7 +29,7 @@ main {
 
 .container {
     min-width: 768px;
-    max-width: 90%;
+    max-width: 768px;
     margin: 50px auto;
     padding: 10px;
     display: grid;
@@ -50,7 +49,6 @@ main {
 /* -------- Horse info area -------- */
 
 .horse-info-red {
-    background: #613f3f;
     grid-column: 1/4;
     padding: 10px;
     border-radius: 20px;
@@ -61,7 +59,6 @@ main {
 }
 
 .horse-info-yellow {
-    background: #bfcc45;
     grid-column: 4/7;
     padding: 10px;
     border-radius: 20px;
@@ -72,7 +69,6 @@ main {
 }
 
 .horse-info-green {
-    background: #1ad609;
     grid-column: 7/10;
     padding: 10px;
     border-radius: 20px;
@@ -83,7 +79,6 @@ main {
 }
 
 .horse-info-blue {
-    background: #3c2adf;
     grid-column: 10/14;
     padding: 10px;
     border-radius: 20px;
@@ -104,9 +99,17 @@ main {
 /* -------- Horse select button -------- */
 
 .horse-select--btn {
-    background: #4a4a4a;
-    padding: 10px;
+    padding:0.7em 1.4em;
+    border-radius:0.15em;
+    border-style: none;
     border-radius: 20px;
+    text-transform:uppercase;
+    font-weight:400;
+    color:#FFFFFF;
+    background-color:#3369ff;
+    box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+    text-align:center;
+    position:relative;
     grid-column: 1/4;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
@@ -117,61 +120,80 @@ main {
     grid-row: 2;
 }
 
+.active, .horse-select--btn:hover {
+    background: #1ad609;
+}
+
+
 /* -------- Racing Area -------- */
 
 .racing-area {
-    background:#4a4a4a;
     grid-column: 1/14;
-    padding: 10px;
-    border-radius: 20px;
+    padding: 35px;
+    border-radius: 10px;
     display: grid;
-    grid-template-columns: 50px 1fr 50px;
+    grid-template-columns: 20px 1fr 20px;
     grid-template-rows: repeat(4, 1fr);
-    gap: 5px;
+    margin-top: -15px;
 }
 
 .racing-start {
-    background: #afafaf;
+    background: #f0f0f0;
     padding: 10px;
-    border-radius: 20px;
+    border-radius: 20px 0 0 20px;
     grid-row: 1/5;
+    border-top: #1d1d1d 2px solid;
+    border-left: #1d1d1d 2px solid; 
+    border-bottom: #1d1d1d 2px solid;
 }
 
 .red-horse {
-    background: #613f3f;
+    background: #9e8b7b;
     grid-column: 2/3;
     padding: 10px;
-    border-radius: 20px;
+    border-top: #1d1d1d 2px solid;
 }
 
 .yellow-horse {
-    background: #bfcc45;
+    background: #9e8b7b;
     grid-column: 2/3;
     grid-row: 2;
     padding: 10px;
-    border-radius: 20px;
+    border-top: #1d1d1d 2px solid;
 }
 
 .green-horse {
-    background: #1ad609;
+    background: #9e8b7b;
     grid-column: 2/3;
     grid-row: 3;
     padding: 10px;
-    border-radius: 20px;
+    border-top: #1d1d1d 2px solid;
 }
 
 .blue-horse {
-    background: #3c2adf;
+    background: #9e8b7b;
     grid-column: 2/3;
     grid-row: 4;
     padding: 10px;
-    border-radius: 20px;
+    border-top: #1d1d1d 2px solid;
+    border-bottom: #1d1d1d 2px solid;
 }
 
+/* finish line code was made with tutorial marked "Finish line code" in credits in README.md */
 .racing-finish {
-    background: #afafaf;
+    background-color: #eee;
+    background-image:
+    linear-gradient(45deg, #414141 25%, transparent 25%, 
+        transparent 75%, #414141 75%, #414141),
+    linear-gradient(45deg, #414141 25%, transparent 25%, 
+        transparent 75%, #414141 75%, #414141);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
     padding: 10px;
-    border-radius: 20px;
+    border-radius: 0 20px 20px 0;
+    border-top:    2px solid #1d1d1d;
+    border-right:  2px solid #1d1d1d; 
+    border-bottom: 2px solid #1d1d1d;
     grid-row: 1/5;
 }
 
