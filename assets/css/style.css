@@ -95,6 +95,7 @@ main {
     grid-row: 1/3;
     padding: 10px;
     border-radius: 20px;
+    border:#3f5db1 3px solid;
 }
 
 img {
@@ -121,9 +122,13 @@ img {
     grid-row: 2;
 }
 
-.active, .horse-select--btn:hover {
-    background: #54aa4c;
+.horse-select--btn:hover {
+    color:#252525;
 }
+
+/* .horse-select--btn:hover {
+    background: #54aa4c;
+} */
 
 
 /* -------- Racing Area -------- */
