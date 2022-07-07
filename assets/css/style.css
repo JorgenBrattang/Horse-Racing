@@ -12,16 +12,6 @@ body {
     background: #1d1d1d;
 }
 
-.container {
-    min-width: 768px;
-    max-width: 90%;
-    margin: 50px auto;
-    padding: 10px;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 80px 800px 100px;
-}
-
 header {
     background: blue;
     padding: 10px;
@@ -36,12 +26,28 @@ main {
     gap: 10px;
 }
 
+/* -------- Site container -------- */
+
+.container {
+    min-width: 768px;
+    max-width: 90%;
+    margin: 50px auto;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 800px 100px;
+}
+
+/* -------- How to play area -------- */
+
 .how-to-play {
     background:#4a4a4a;
     grid-column: 1/14;
     padding: 10px;
     border-radius: 20px;
 }
+
+/* -------- Horse info area -------- */
 
 .horse-info-red {
     background: #613f3f;
@@ -95,6 +101,8 @@ main {
     border-radius: 20px;
 }
 
+/* -------- Horse select button -------- */
+
 .horse-select--btn {
     background: #4a4a4a;
     padding: 10px;
@@ -109,17 +117,66 @@ main {
     grid-row: 2;
 }
 
+/* -------- Racing Area -------- */
+
 .racing-area {
     background:#4a4a4a;
     grid-column: 1/14;
     padding: 10px;
     border-radius: 20px;
-    border: #bdbdbd;
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.racing-start {
+    background: #afafaf;
+    padding: 10px;
+    border-radius: 20px;
+    grid-row: 1/5;
+}
+
+.red-horse {
+    background: #613f3f;
+    grid-column: 2/3;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.yellow-horse {
+    background: #bfcc45;
+    grid-column: 2/3;
+    grid-row: 2;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.green-horse {
+    background: #1ad609;
+    grid-column: 2/3;
+    grid-row: 3;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.blue-horse {
+    background: #3c2adf;
+    grid-column: 2/3;
+    grid-row: 4;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.racing-finish {
+    background: #afafaf;
+    padding: 10px;
+    border-radius: 20px;
+    grid-row: 1/5;
 }
 
 footer {
     background: green;
     padding: 10px;
     border-radius: 20px;
-    border: #bdbdbd;
 }
