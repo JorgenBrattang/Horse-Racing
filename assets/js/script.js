@@ -1,6 +1,9 @@
 
 // Gets all the button from the tag name button from the DOM
 const buttons = document.getElementsByTagName("button");
+let i = 0;
+
+
 
 for (const button of buttons) {
     button.addEventListener("click", function() {
@@ -19,11 +22,37 @@ for (const button of buttons) {
         else if (this.getAttribute("data-type") === "white") {
             changeActive(3);
             startRace();
-        } else {
+        }
+        else if (this.getAttribute("data-type") === "reset") {
+            let horse = document.getElementById("brown-horse");
+            horse.style.background = '#252525';
+        }
+        else {
             alert("button doesn't choose a data-type, look that up!")
         }
     })
 }
+
+
+function startRace() {
+    if (i == 0) {
+        i = 1;
+        let horse = document.getElementById("brown-horse");
+        horse.style.background = '#683b11';
+        let width = 1;
+        let id = setInterval(frame, 10);
+        function frame() {
+          if (width >= 100) {
+            clearInterval(id);
+            i = 0;
+          } else {
+            width++;
+            horse.style.width = width + "%";
+          }
+        }
+    }
+}
+
 
 /**
  * Changes the active class on the selected button and resets the rest.

@@ -153,14 +153,13 @@ img {
     border-bottom: #1d1d1d 2px solid;
 }
 
-.red-horse {
-    background: #9e8b7b;
+#brown-horse {
     grid-column: 2/3;
     padding: 10px;
     border-top: #1d1d1d 2px solid;
 }
 
-.yellow-horse {
+#yellow-horse {
     background: #9e8b7b;
     grid-column: 2/3;
     grid-row: 2;
@@ -168,7 +167,7 @@ img {
     border-top: #1d1d1d 2px solid;
 }
 
-.green-horse {
+#green-horse {
     background: #9e8b7b;
     grid-column: 2/3;
     grid-row: 3;
@@ -176,7 +175,7 @@ img {
     border-top: #1d1d1d 2px solid;
 }
 
-.blue-horse {
+#blue-horse {
     background: #9e8b7b;
     grid-column: 2/3;
     grid-row: 4;
