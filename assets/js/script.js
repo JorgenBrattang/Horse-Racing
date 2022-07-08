@@ -1,8 +1,8 @@
 
 // Gets all the button from the tag name button from the DOM
-const buttons = document.getElementsByTagName("button");
+let buttons = document.getElementsByTagName("button");
 let i = 1;
-for (const button of buttons) {
+for (button of buttons) {
     button.addEventListener("click", function() {
         if (this.getAttribute("data-type") === "brown") {
             sequenceStart(0);
@@ -19,12 +19,16 @@ for (const button of buttons) {
         else if (this.getAttribute("data-type") === "reset") {
             let horseBrown = document.getElementById("brown-horse");
             horseBrown.style.width = '1%';
+
             let horseGrey = document.getElementById("grey-horse");
             horseGrey.style.width = '1%';
+
             let horseOrange = document.getElementById("orange-horse");
             horseOrange.style.width = '1%';
+
             let horseWhite = document.getElementById("white-horse");
             horseWhite.style.width = '1%';
+
             i = 1;
         }
         else {
@@ -38,7 +42,7 @@ for (const button of buttons) {
  */
 function sequenceStart(num) {
     if (i === 1) {
-        changeActive(num);
+        changeActiveButton(num);
         startRace(i,num);
         i = 0;
     } else {
@@ -110,36 +114,31 @@ function startRace(i,num) {
         } else {
             alert("i = " + i + " and num = " + num);
         }
-    
 }
 
 
 /**
  * Changes the active class on the selected button and resets the rest.
  */
-function changeActive(num) {
+function changeActiveButton(num) {
     
     if(num === 0) {
         targetButton = document.getElementsByClassName('horse-select--btn')[num];
-        targetButton.style.cssText = 'background: #683b11;'
         activeButton();
         resetActive(num);
     } 
     else if (num === 1){
         targetButton = document.getElementsByClassName('horse-select--btn')[num];
-        targetButton.style.cssText = 'background: #a48a7b;'
         activeButton();
         resetActive(num);
     }
     else if (num === 2){
         targetButton = document.getElementsByClassName('horse-select--btn')[num];
-        targetButton.style.cssText = 'background: #d46c2f;'
         activeButton();
         resetActive(num);
     }
     else {
         targetButton = document.getElementsByClassName('horse-select--btn')[num];
-        targetButton.style.cssText = 'background: #ededed; color: #4a4a4a;'
         activeButton();
         resetActive(num);
     }
