@@ -1,15 +1,17 @@
 
 // Gets all the button from the tag name button from the DOM
 const buttons = document.getElementsByTagName("button");
-let i = 0;
-
-
-
+let i = 1;
 for (const button of buttons) {
     button.addEventListener("click", function() {
         if (this.getAttribute("data-type") === "brown") {
-            changeActive(0);
-            startRace();
+            if (i === 1) {
+                changeActive(0);
+                startRace(i);
+                i = 0;
+            } else {
+                alert('To do another race, press RESET!');
+            }
         }
         else if (this.getAttribute("data-type") === "grey") {
             changeActive(1);
@@ -26,6 +28,7 @@ for (const button of buttons) {
         else if (this.getAttribute("data-type") === "reset") {
             let horse = document.getElementById("brown-horse");
             horse.style.background = '#252525';
+            i = 1;
         }
         else {
             alert("button doesn't choose a data-type, look that up!")
@@ -33,10 +36,11 @@ for (const button of buttons) {
     })
 }
 
-
-function startRace() {
-    if (i == 0) {
-        i = 1;
+/**
+ * Starts the race
+ */
+function startRace(i) {
+    if (i == 1) {
         let horse = document.getElementById("brown-horse");
         horse.style.background = '#683b11';
         let width = 1;
@@ -44,12 +48,13 @@ function startRace() {
         function frame() {
           if (width >= 100) {
             clearInterval(id);
-            i = 0;
           } else {
             width++;
             horse.style.width = width + "%";
           }
         }
+    } else {
+        alert('i is not 0');
     }
 }
 
