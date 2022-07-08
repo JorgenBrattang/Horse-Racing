@@ -141,47 +141,50 @@ img {
     grid-template-columns: 20px 1fr 20px;
     grid-template-rows: repeat(4, 1fr);
     margin-top: -35px;
+    grid-row-gap: 5px;
 }
 
 .racing-start {
-    background: #f0f0f0;
+    background: #414141;
     padding: 10px;
     border-radius: 20px 0 0 20px;
     grid-row: 1/5;
     border-top: #1d1d1d 2px solid;
     border-left: #1d1d1d 2px solid; 
     border-bottom: #1d1d1d 2px solid;
+    margin-bottom: -2px;
 }
 
 #brown-horse {
     grid-column: 2/3;
     padding: 10px;
-    border-top: #1d1d1d 2px solid;
+    background: #683b11;
+    width: 1%;
+    margin-top: 2px;
 }
 
-#yellow-horse {
-    background: #9e8b7b;
+#grey-horse {
     grid-column: 2/3;
     grid-row: 2;
     padding: 10px;
-    border-top: #1d1d1d 2px solid;
+    background: #a48a7b;
+    width: 1%;
 }
 
-#green-horse {
-    background: #9e8b7b;
+#orange-horse {
     grid-column: 2/3;
     grid-row: 3;
     padding: 10px;
-    border-top: #1d1d1d 2px solid;
+    background: #d46c2f;
+    width: 1%;
 }
 
-#blue-horse {
-    background: #9e8b7b;
+#white-horse {
     grid-column: 2/3;
     grid-row: 4;
     padding: 10px;
-    border-top: #1d1d1d 2px solid;
-    border-bottom: #1d1d1d 2px solid;
+    background: #ededed;
+    width: 1%;
 }
 
 /* finish line code was made with tutorial marked "Finish line code" in credits in README.md */

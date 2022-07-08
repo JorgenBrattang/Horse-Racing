@@ -5,29 +5,26 @@ let i = 1;
 for (const button of buttons) {
     button.addEventListener("click", function() {
         if (this.getAttribute("data-type") === "brown") {
-            if (i === 1) {
-                changeActive(0);
-                startRace(i);
-                i = 0;
-            } else {
-                alert('To do another race, press RESET!');
-            }
+            sequenceStart(0);
         }
         else if (this.getAttribute("data-type") === "grey") {
-            changeActive(1);
-            startRace();
+            sequenceStart(1);
         }
         else if (this.getAttribute("data-type") === "orange") {
-            changeActive(2);
-            startRace();
+            sequenceStart(2);
         }
         else if (this.getAttribute("data-type") === "white") {
-            changeActive(3);
-            startRace();
+            sequenceStart(3);
         }
         else if (this.getAttribute("data-type") === "reset") {
-            let horse = document.getElementById("brown-horse");
-            horse.style.background = '#252525';
+            let horseBrown = document.getElementById("brown-horse");
+            horseBrown.style.width = '1%';
+            let horseGrey = document.getElementById("grey-horse");
+            horseGrey.style.width = '1%';
+            let horseOrange = document.getElementById("orange-horse");
+            horseOrange.style.width = '1%';
+            let horseWhite = document.getElementById("white-horse");
+            horseWhite.style.width = '1%';
             i = 1;
         }
         else {
@@ -35,27 +32,85 @@ for (const button of buttons) {
         }
     })
 }
+/**
+ * Starts the sequence to start all the functions when pressing on
+ * a horse select button.
+ */
+function sequenceStart(num) {
+    if (i === 1) {
+        changeActive(num);
+        startRace(i,num);
+        i = 0;
+    } else {
+        alert("i = " + i + " and num = " + num);
+    }
+}
 
 /**
  * Starts the race
  */
-function startRace(i) {
+function startRace(i,num) {
     if (i == 1) {
-        let horse = document.getElementById("brown-horse");
-        horse.style.background = '#683b11';
-        let width = 1;
-        let id = setInterval(frame, 10);
-        function frame() {
-          if (width >= 100) {
-            clearInterval(id);
-          } else {
-            width++;
-            horse.style.width = width + "%";
-          }
+        if (num === 0) {
+            let horse = document.getElementById("brown-horse");
+            horse.style.background = '#683b11';
+            let width = 1;
+            let id = setInterval(frame, 10);
+            function frame() {
+            if (width >= 100) {
+                clearInterval(id);
+            } else {
+                width++;
+                horse.style.width = width + "%";
+            }
+            }
         }
-    } else {
-        alert('i is not 0');
-    }
+        else if (num === 1) {
+            let horse = document.getElementById("grey-horse");
+            horse.style.background = '#a48a7b';
+            let width = 1;
+            let id = setInterval(frame, 10);
+            function frame() {
+            if (width >= 100) {
+                clearInterval(id);
+            } else {
+                width++;
+                horse.style.width = width + "%";
+            }
+            }
+        }
+        else if (num === 2) {
+            let horse = document.getElementById("orange-horse");
+            horse.style.background = '#d46c2f';
+            let width = 1;
+            let id = setInterval(frame, 10);
+            function frame() {
+            if (width >= 100) {
+                clearInterval(id);
+            } else {
+                width++;
+                horse.style.width = width + "%";
+            }
+            }
+        }
+        else if (num === 3) {
+            let horse = document.getElementById("white-horse");
+            horse.style.background = '#ededed';
+            let width = 1;
+            let id = setInterval(frame, 10);
+            function frame() {
+            if (width >= 100) {
+                clearInterval(id);
+            } else {
+                width++;
+                horse.style.width = width + "%";
+            }
+            }
+        }
+        } else {
+            alert("i = " + i + " and num = " + num);
+        }
+    
 }
 
 
