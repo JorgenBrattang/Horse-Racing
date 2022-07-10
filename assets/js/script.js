@@ -25,33 +25,11 @@ for (button of buttons) {
     })
 }
 
-function randomWinner(num) {
-    let horseRandom = [
-        num = Math.floor(Math.random() * 50) + 50,
-        Math.floor(Math.random() * 50) + 50,
-        Math.floor(Math.random() * 50) + 50,
-        Math.floor(Math.random() * 50) + 50
-    ];
-
-    let max = Math.max(
-        horseRandom[0],
-        horseRandom[1],
-        horseRandom[2],
-        horseRandom[3]);
-
-    if (num === max) {
-        alert('Your horse won with ' + num + ".");
-    } else {
-        alert('You lost, the winner was ' + max + ". And you had " + num);
-    }
-}
-
 /**
  * Starts the sequence to start all the functions when pressing on
  * a horse select button.
  */
 function sequenceStart(num) {
-    randomWinner(num);
     if (i === 1) {
         changeActiveButton(num);
         startRace(i,num);
@@ -100,62 +78,74 @@ function sequenceStart(num) {
  */
  function startRace(i,num) {
     if (i == 1) {
-        if (num === 0) {
-            let horse = document.getElementById("brown-horse");
-            let width = 1;
-            let id = setInterval(frame, 10);
-            function frame() {
-            if (width >= 100) {
-                clearInterval(id);
-            } else {
-                width++;
-                horse.style.width = width + "%";
+            let brownHorse = document.getElementById("brown-horse");
+            let greyHorse = document.getElementById("grey-horse");
+            let orangeHorse = document.getElementById("orange-horse");
+            let whiteHorse = document.getElementById("white-horse");
+
+            let brownHorseWidth = 1;
+            let greyHorseWidth = 1;
+            let orangeHorseWidth = 1;
+            let whiteHorseWidth = 1;
+
+                let horseRandom = [
+                    5,
+                    10,
+                    15,
+                    20
+                ];
+            
+                // let max = Math.max(
+                //     horseRandom[0],
+                //     horseRandom[1],
+                //     horseRandom[2],
+                //     horseRandom[3]);
+
+            let brownID = setInterval(brownFrame, horseRandom[0]);
+            let greyID = setInterval(greyFrame, horseRandom[1]);
+            let orangeID = setInterval(orangeFrame, horseRandom[2]);
+            let whiteID = setInterval(whiteFrame, horseRandom[3]);
+
+            function brownFrame() {
+                if (brownHorseWidth >= 100) {
+                    clearInterval(brownID);
+                } else {
+                    brownHorseWidth++;
+                    brownHorse.style.width = brownHorseWidth + "%";
+                }
             }
+
+            function greyFrame() {
+                if (greyHorseWidth >= 100) {
+                    clearInterval(greyID);
+                } else {
+                    greyHorseWidth++;
+                    greyHorse.style.width = greyHorseWidth + "%";
+                }
             }
-        }
-        else if (num === 1) {
-            let horse = document.getElementById("grey-horse");
-            let width = 1;
-            let id = setInterval(frame, 10);
-            function frame() {
-            if (width >= 100) {
-                clearInterval(id);
-            } else {
-                width++;
-                horse.style.width = width + "%";
+
+            function orangeFrame() {
+                if (orangeHorseWidth >= 100) {
+                    clearInterval(orangeID);
+                } else {
+                    orangeHorseWidth++;
+                    orangeHorse.style.width = orangeHorseWidth + "%";
+                }
             }
+
+            function whiteFrame() {
+                if (whiteHorseWidth >= 100) {
+                    clearInterval(whiteID);
+                } else {
+                    whiteHorseWidth++;
+                    whiteHorse.style.width = whiteHorseWidth + "%";
+                }
             }
-        }
-        else if (num === 2) {
-            let horse = document.getElementById("orange-horse");
-            let width = 1;
-            let id = setInterval(frame, 10);
-            function frame() {
-            if (width >= 100) {
-                clearInterval(id);
-            } else {
-                width++;
-                horse.style.width = width + "%";
-            }
-            }
-        }
-        else if (num === 3) {
-            let horse = document.getElementById("white-horse");
-            let width = 1;
-            let id = setInterval(frame, 10);
-            function frame() {
-            if (width >= 100) {
-                clearInterval(id);
-            } else {
-                width++;
-                horse.style.width = width + "%";
-            }
-            }
-        }
         } else {
             alert("i = " + i + " and num = " + num);
         }
 }
+
 
 
 /**
