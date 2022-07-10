@@ -26,6 +26,8 @@ main {
     gap: 10px;
 }
 
+
+
 /* -------- Site container -------- */
 
 .container {
@@ -122,23 +124,6 @@ img {
     grid-row: 2;
 }
 
-
-.brown-hover:hover {
-    background: #683b11;
-}
-
-.grey-hover:hover {
-    background: #a48a7b;
-}
-
-.orange-hover:hover {
-    background: #d46c2f;
-}
-
-.white-hover:hover {
-    background: #ededed;
-    color: #252525;
-}
 
 /* -------- Racing Area -------- */
 

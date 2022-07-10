@@ -4,7 +4,7 @@ let buttons = document.getElementsByTagName("button");
 let i = 1;
 for (button of buttons) {
     button.addEventListener("click", function() {
-        if (this.getAttribute("data-type") === "brown") {
+        if (this.getAttribute("data-type") === "brown") { 
             sequenceStart(0);
         }
         else if (this.getAttribute("data-type") === "grey") {
@@ -18,7 +18,6 @@ for (button of buttons) {
         }
         else if (this.getAttribute("data-type") === "reset") {
             sequenceReset();
-
         }
         else {
             alert("button doesn't choose a data-type, look that up!")
@@ -26,11 +25,33 @@ for (button of buttons) {
     })
 }
 
+function randomWinner(num) {
+    let horseRandom = [
+        num = Math.floor(Math.random() * 50) + 50,
+        Math.floor(Math.random() * 50) + 50,
+        Math.floor(Math.random() * 50) + 50,
+        Math.floor(Math.random() * 50) + 50
+    ];
+
+    let max = Math.max(
+        horseRandom[0],
+        horseRandom[1],
+        horseRandom[2],
+        horseRandom[3]);
+
+    if (num === max) {
+        alert('Your horse won with ' + num + ".");
+    } else {
+        alert('You lost, the winner was ' + max + ". And you had " + num);
+    }
+}
+
 /**
  * Starts the sequence to start all the functions when pressing on
  * a horse select button.
  */
 function sequenceStart(num) {
+    randomWinner(num);
     if (i === 1) {
         changeActiveButton(num);
         startRace(i,num);
@@ -41,34 +62,43 @@ function sequenceStart(num) {
 }
 
 /**
- * Starts the sequence to reset all the functions when pressing on
- * Reset button.
+ * Changes the active class on the selected button and resets the rest.
  */
-function sequenceReset() {
-    let horseBrown = document.getElementById("brown-horse");
-    horseBrown.style.width = '1%';
-
-    let horseGrey = document.getElementById("grey-horse");
-    horseGrey.style.width = '1%';
-
-    let horseOrange = document.getElementById("orange-horse");
-    horseOrange.style.width = '1%';
-
-    let horseWhite = document.getElementById("white-horse");
-    horseWhite.style.width = '1%';
-
-    i = 1;
+ function changeActiveButton(num) {
     
-    let horsesNumber = [1,2,3,4];
-    for (horse in horsesNumber) {
-        resetActive(horse);
+    if(num === 0) {
+        targetButton = document.getElementsByClassName('horse-select--btn')[num];
+        activeButton();
+        resetActive(num);
+    } 
+    else if (num === 1){
+        targetButton = document.getElementsByClassName('horse-select--btn')[num];
+        activeButton();
+        resetActive(num);
     }
+    else if (num === 2){
+        targetButton = document.getElementsByClassName('horse-select--btn')[num];
+        activeButton();
+        resetActive(num);
+    }
+    else {
+        targetButton = document.getElementsByClassName('horse-select--btn')[num];
+        activeButton();
+        resetActive(num);
+    }
+}
+
+/**
+ * Changes the buttons innerText to Good Luck!
+ */
+ function activeButton() {
+    targetButton.children[0].innerText = 'Good Luck!';
 }
 
 /**
  * Starts the race
  */
-function startRace(i,num) {
+ function startRace(i,num) {
     if (i == 1) {
         if (num === 0) {
             let horse = document.getElementById("brown-horse");
@@ -129,31 +159,28 @@ function startRace(i,num) {
 
 
 /**
- * Changes the active class on the selected button and resets the rest.
+ * Starts the sequence to reset all the functions when pressing on
+ * Reset button.
  */
-function changeActiveButton(num) {
-    
-    if(num === 0) {
-        targetButton = document.getElementsByClassName('horse-select--btn')[num];
-        activeButton();
-        resetActive(num);
-    } 
-    else if (num === 1){
-        targetButton = document.getElementsByClassName('horse-select--btn')[num];
-        activeButton();
-        resetActive(num);
-    }
-    else if (num === 2){
-        targetButton = document.getElementsByClassName('horse-select--btn')[num];
-        activeButton();
-        resetActive(num);
-    }
-    else {
-        targetButton = document.getElementsByClassName('horse-select--btn')[num];
-        activeButton();
-        resetActive(num);
-    }
+function sequenceReset() {
+    let horseBrown = document.getElementById("brown-horse");
+    horseBrown.style.width = '1%';
 
+    let horseGrey = document.getElementById("grey-horse");
+    horseGrey.style.width = '1%';
+
+    let horseOrange = document.getElementById("orange-horse");
+    horseOrange.style.width = '1%';
+
+    let horseWhite = document.getElementById("white-horse");
+    horseWhite.style.width = '1%';
+
+    i = 1;
+    
+    let horsesNumber = [1,2,3,4];
+    for (horse in horsesNumber) {
+        resetActive(horse);
+    }
 }
 
 /**
@@ -164,7 +191,6 @@ function resetActive(num) {
         numbers = [1,2,3];
         for (number of numbers) {
             targetButton = document.getElementsByClassName('horse-select--btn')[number];
-            targetButton.style.cssText = 'background: #3f5db1;'
             resetButton();
         }
     } 
@@ -172,7 +198,6 @@ function resetActive(num) {
         numbers = [0,2,3];
         for (number of numbers) {
             targetButton = document.getElementsByClassName('horse-select--btn')[number];
-            targetButton.style.cssText = 'background: #3f5db1;'
             resetButton();
         }
     }
@@ -180,7 +205,6 @@ function resetActive(num) {
         numbers = [0,1,3];
         for (number of numbers) {
             targetButton = document.getElementsByClassName('horse-select--btn')[number];
-            targetButton.style.cssText = 'background: #3f5db1;'
             resetButton();
         }
     }
@@ -188,17 +212,9 @@ function resetActive(num) {
         numbers = [0,1,2];
         for (number of numbers) {
             targetButton = document.getElementsByClassName('horse-select--btn')[number];
-            targetButton.style.cssText = 'background: #3f5db1;'
             resetButton();
         }
     }
-}
-
-/**
- * Changes the buttons innerText to Good Luck!
- */
- function activeButton() {
-    targetButton.children[0].innerText = 'Good Luck!';
 }
 
 /**
