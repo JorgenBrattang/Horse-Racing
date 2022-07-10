@@ -30,6 +30,12 @@ for (button of buttons) {
             horseWhite.style.width = '1%';
 
             i = 1;
+            
+            let horses = [1,2,3,4];
+            for (horse in horses) {
+                resetActive(horse);
+            }
+
         }
         else {
             alert("button doesn't choose a data-type, look that up!")
