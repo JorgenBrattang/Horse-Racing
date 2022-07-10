@@ -17,24 +17,7 @@ for (button of buttons) {
             sequenceStart(3);
         }
         else if (this.getAttribute("data-type") === "reset") {
-            let horseBrown = document.getElementById("brown-horse");
-            horseBrown.style.width = '1%';
-
-            let horseGrey = document.getElementById("grey-horse");
-            horseGrey.style.width = '1%';
-
-            let horseOrange = document.getElementById("orange-horse");
-            horseOrange.style.width = '1%';
-
-            let horseWhite = document.getElementById("white-horse");
-            horseWhite.style.width = '1%';
-
-            i = 1;
-            
-            let horses = [1,2,3,4];
-            for (horse in horses) {
-                resetActive(horse);
-            }
+            sequenceReset();
 
         }
         else {
@@ -42,6 +25,7 @@ for (button of buttons) {
         }
     })
 }
+
 /**
  * Starts the sequence to start all the functions when pressing on
  * a horse select button.
@@ -57,13 +41,37 @@ function sequenceStart(num) {
 }
 
 /**
+ * Starts the sequence to reset all the functions when pressing on
+ * Reset button.
+ */
+function sequenceReset() {
+    let horseBrown = document.getElementById("brown-horse");
+    horseBrown.style.width = '1%';
+
+    let horseGrey = document.getElementById("grey-horse");
+    horseGrey.style.width = '1%';
+
+    let horseOrange = document.getElementById("orange-horse");
+    horseOrange.style.width = '1%';
+
+    let horseWhite = document.getElementById("white-horse");
+    horseWhite.style.width = '1%';
+
+    i = 1;
+    
+    let horsesNumber = [1,2,3,4];
+    for (horse in horsesNumber) {
+        resetActive(horse);
+    }
+}
+
+/**
  * Starts the race
  */
 function startRace(i,num) {
     if (i == 1) {
         if (num === 0) {
             let horse = document.getElementById("brown-horse");
-            horse.style.background = '#683b11';
             let width = 1;
             let id = setInterval(frame, 10);
             function frame() {
@@ -77,7 +85,6 @@ function startRace(i,num) {
         }
         else if (num === 1) {
             let horse = document.getElementById("grey-horse");
-            horse.style.background = '#a48a7b';
             let width = 1;
             let id = setInterval(frame, 10);
             function frame() {
@@ -91,7 +98,6 @@ function startRace(i,num) {
         }
         else if (num === 2) {
             let horse = document.getElementById("orange-horse");
-            horse.style.background = '#d46c2f';
             let width = 1;
             let id = setInterval(frame, 10);
             function frame() {
@@ -105,7 +111,6 @@ function startRace(i,num) {
         }
         else if (num === 3) {
             let horse = document.getElementById("white-horse");
-            horse.style.background = '#ededed';
             let width = 1;
             let id = setInterval(frame, 10);
             function frame() {
@@ -190,14 +195,14 @@ function resetActive(num) {
 }
 
 /**
- * Changes the buttons innerText to Good Luck! and adds the active class
+ * Changes the buttons innerText to Good Luck!
  */
  function activeButton() {
     targetButton.children[0].innerText = 'Good Luck!';
 }
 
 /**
- * Changes the buttons innerText to Select ME! and removes the active class
+ * Changes the buttons innerText to Select ME!
  */
 function resetButton() {
     targetButton.children[0].innerText = 'Select ME!';
