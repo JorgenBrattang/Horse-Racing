@@ -82,6 +82,7 @@ function sequenceStart(num) {
             let greyHorse = document.getElementById("grey-horse");
             let orangeHorse = document.getElementById("orange-horse");
             let whiteHorse = document.getElementById("white-horse");
+            
 
             let brownHorseWidth = 1;
             let greyHorseWidth = 1;
@@ -89,17 +90,39 @@ function sequenceStart(num) {
             let whiteHorseWidth = 1;
 
                 let horseRandom = [
-                    5,
-                    10,
-                    15,
-                    20
-                ];
-            
-                // let max = Math.max(
-                //     horseRandom[0],
-                //     horseRandom[1],
-                //     horseRandom[2],
-                //     horseRandom[3]);
+                    Math.floor(Math.random() * 10) + 25,
+                    Math.floor(Math.random() * 10) + 25,
+                    Math.floor(Math.random() * 10) + 25,
+                    Math.floor(Math.random() * 10) + 25,];
+
+                let winner = [
+                    horseRandom[0],
+                    horseRandom[1],
+                    horseRandom[2],
+                    horseRandom[3],
+                ]
+
+                winner.sort(function(b, a){return a-b});
+
+                if (horseRandom[0] === winner[0]) {
+                    document.getElementById("winner").innerHTML = 'Brown horse'; 
+                }
+
+                else if (horseRandom[1] === winner[0]) {
+                    document.getElementById("winner").innerHTML = 'Grey horse'; 
+                }
+
+                else if (horseRandom[2] === winner[0]) {
+                    document.getElementById("winner").innerHTML = 'Orange horse'; 
+                }
+
+                else if (horseRandom[3] === winner[0]) {
+                    document.getElementById("winner").innerHTML = 'White horse'; 
+                }
+
+                    document.getElementById("horse-random").innerHTML = horseRandom; 
+                    
+
 
             let brownID = setInterval(brownFrame, horseRandom[0]);
             let greyID = setInterval(greyFrame, horseRandom[1]);

@@ -210,7 +210,7 @@ img {
     background: #238d43;
     color:#eee;
     box-shadow:inset 0 -10px 0 -5px rgba(0,0,0,0.25);
-    grid-column: 3;
+    grid-column: 1;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
 }
@@ -224,12 +224,40 @@ img {
     background: rgb(180, 57, 57);
 }
 
+/* --------- Footer ---------- */
+
 footer {
+    grid-row: 4;
     background: #3f5db1;
     padding: 10px;
     border-radius: 20px;
-    border: #4a4a4a;
-    margin-top: 5px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    column-gap: 10px;
+}
+
+.winner {
+    grid-column: 2;
+    border-radius: 20px;
+    background: #252525;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.winner--btn-text {
+    text-align: center;
+    grid-row: 2;
+}
+
+.placement {
+    grid-column: 3/6;
+    border-radius: 20px;
+    background: #252525;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.placement--btn-text {
+    text-align: center;
+    grid-row: 2;
 }
