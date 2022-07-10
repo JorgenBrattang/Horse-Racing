@@ -17,7 +17,7 @@ for (button of buttons) {
             sequenceStart(3);
         }
         else if (this.getAttribute("data-type") === "reset") {
-            sequenceReset();
+            sequenceReset()
         }
         else {
             alert("button doesn't choose a data-type, look that up!")
@@ -102,26 +102,73 @@ function sequenceStart(num) {
                     horseRandom[3],
                 ]
 
-                winner.sort(function(b, a){return a-b});
+                winner.sort(function(b, a){return b-a});
 
-                if (horseRandom[0] === winner[0]) {
-                    document.getElementById("winner").innerHTML = 'Brown horse'; 
-                }
 
-                else if (horseRandom[1] === winner[0]) {
-                    document.getElementById("winner").innerHTML = 'Grey horse'; 
-                }
+                setTimeout(function(){
+                    if (horseRandom[0] === winner[0]) {
+                        document.getElementById("winner").innerHTML = 'Brown horse'; 
+                        /* Function soon */
+                        if (num === 0) {
+                            let score = parseInt(document.getElementById("scoreCounter").innerHTML);
+                            score += 1;
+                            document.getElementById("scoreCounter").innerHTML = score;
+                        } else {
+                            let score = parseInt(document.getElementById("scoreCounter").innerHTML);
+                            score -= 1;
+                            document.getElementById("scoreCounter").innerHTML = score;
+                        }
+                        /* Function soon above */
+                    }
 
-                else if (horseRandom[2] === winner[0]) {
-                    document.getElementById("winner").innerHTML = 'Orange horse'; 
-                }
+                    else if (horseRandom[1] === winner[0]) {
+                        document.getElementById("winner").innerHTML = 'Grey horse'; 
+                        /* Function soon */
+                        if (num === 1) {
+                            let score = parseInt(document.getElementById("scoreCounter").innerHTML);
+                            score += 1;
+                            document.getElementById("scoreCounter").innerHTML = score;
+                        } else {
+                            let score = parseInt(document.getElementById("scoreCounter").innerHTML);
+                            score -= 1;
+                            document.getElementById("scoreCounter").innerHTML = score;
+                        }
+                        /* Function soon above */
+                    }
 
-                else if (horseRandom[3] === winner[0]) {
-                    document.getElementById("winner").innerHTML = 'White horse'; 
-                }
+                    else if (horseRandom[2] === winner[0]) {
+                        document.getElementById("winner").innerHTML = 'Orange horse'; 
+                        /* Function soon */
+                        if (num === 2) {
+                            let score = parseInt(document.getElementById("scoreCounter").innerHTML);
+                            score += 1;
+                            document.getElementById("scoreCounter").innerHTML = score;
+                        } else {
+                            let score = parseInt(document.getElementById("scoreCounter").innerHTML);
+                            score -= 1;
+                            document.getElementById("scoreCounter").innerHTML = score;
+                        }
+                        /* Function soon above */
+                    }
 
-                    document.getElementById("horse-random").innerHTML = horseRandom; 
-                    
+                    else if (horseRandom[3] === winner[0]) {
+                        document.getElementById("winner").innerHTML = 'White horse'; 
+                        /* Function soon */
+                        if (num === 3) {
+                            let score = parseInt(document.getElementById("scoreCounter").innerHTML);
+                            score += 1;
+                            document.getElementById("scoreCounter").innerHTML = score;
+                        } else {
+                            let score = parseInt(document.getElementById("scoreCounter").innerHTML);
+                            score -= 1;
+                            document.getElementById("scoreCounter").innerHTML = score;
+                        }
+                        /* Function soon above */
+                    }
+
+                        document.getElementById("horse-random").innerHTML = horseRandom; 
+                },winner[3]*100);
+                 
 
 
             let brownID = setInterval(brownFrame, horseRandom[0]);
