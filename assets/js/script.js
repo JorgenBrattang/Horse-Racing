@@ -35,7 +35,7 @@ function sequenceStart(num) {
         startRace(i,num);
         i = 0;
     } else {
-        alert("i = " + i + " and num = " + num);
+        alert("You need to reset the horses to start a new race!");
     }
 }
 
@@ -156,6 +156,8 @@ function sequenceStart(num) {
                 }
                 /* Gets all the numbers from the race */
                 document.getElementById("horse-random").innerHTML = horseRandom; 
+                /* Gets the last horse and delays it so you can't see the winner
+                until the race is finished */
             },winner[3]*100);
                 
 
@@ -169,9 +171,11 @@ function sequenceStart(num) {
              * Gets the interval speed for Brown horse and if its not 100% keep going.
              */
             function brownFrame() {
+                /* Checks if the length of the race is finished (100%) */
                 if (brownHorseWidth >= 100) {
                     clearInterval(brownID);
                 } else {
+                    /* if it isn't finished, keep on going. */
                     brownHorseWidth++;
                     brownHorse.style.width = brownHorseWidth + "%";
                 }
@@ -181,9 +185,11 @@ function sequenceStart(num) {
              * Gets the interval speed for Grey horse and if its not 100% keep going.
              */
             function greyFrame() {
+                /* Checks if the length of the race is finished (100%) */
                 if (greyHorseWidth >= 100) {
                     clearInterval(greyID);
                 } else {
+                    /* if it isn't finished, keep on going. */
                     greyHorseWidth++;
                     greyHorse.style.width = greyHorseWidth + "%";
                 }
@@ -193,9 +199,11 @@ function sequenceStart(num) {
              * Gets the interval speed for Orange horse and if its not 100% keep going.
              */
             function orangeFrame() {
+                /* Checks if the length of the race is finished (100%) */
                 if (orangeHorseWidth >= 100) {
                     clearInterval(orangeID);
                 } else {
+                    /* if it isn't finished, keep on going. */
                     orangeHorseWidth++;
                     orangeHorse.style.width = orangeHorseWidth + "%";
                 }
@@ -205,9 +213,11 @@ function sequenceStart(num) {
              * Gets the interval speed for Grey horse and if its not 100% keep going.
              */
             function whiteFrame() {
+                /* Checks if the length of the race is finished (100%) */
                 if (whiteHorseWidth >= 100) {
                     clearInterval(whiteID);
                 } else {
+                    /* if it isn't finished, keep on going. */
                     whiteHorseWidth++;
                     whiteHorse.style.width = whiteHorseWidth + "%";
                 }

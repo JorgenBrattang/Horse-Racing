@@ -236,12 +236,12 @@ footer {
     column-gap: 10px;
 }
 
-.winner {
+.winner-class {
     grid-column: 2;
     border-radius: 20px;
-    background: #252525;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
+    background: #252525;
 }
 
 .winner--btn-text {
