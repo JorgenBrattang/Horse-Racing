@@ -118,76 +118,56 @@ function sequenceStart(num) {
 
             /* Creates a delay on the score, so you can't see in advance which horse won */
             setTimeout(function(){
+                /* If the horse is 0 = Brown (Do this code) */
                 if (horseRandom[0] === winner[0]) {
                     document.getElementById("winner").innerHTML = 'Brown horse'; 
-                    /* Function soon */
                     if (num === 0) {
-                        let score = parseInt(document.getElementById("scoreCounter").innerHTML);
-                        score += 5;
-                        document.getElementById("scoreCounter").innerHTML = score;
+                        plusScore(score);
                     } else {
-                        let score = parseInt(document.getElementById("scoreCounter").innerHTML);
-                        score -= 3;
-                        document.getElementById("scoreCounter").innerHTML = score;
+                        minusScore(score);
                     }
-                    /* Function soon above */
                 }
-
+                /* If the horse is 1 = Grey (Do this code) */
                 else if (horseRandom[1] === winner[0]) {
                     document.getElementById("winner").innerHTML = 'Grey horse'; 
-                    /* Function soon */
                     if (num === 1) {
-                        let score = parseInt(document.getElementById("scoreCounter").innerHTML);
-                        score += 5;
-                        document.getElementById("scoreCounter").innerHTML = score;
+                        plusScore(score);
                     } else {
-                        let score = parseInt(document.getElementById("scoreCounter").innerHTML);
-                        score -= 3;
-                        document.getElementById("scoreCounter").innerHTML = score;
+                        minusScore(score);
                     }
-                    /* Function soon above */
                 }
-
+                /* If the horse is 2 = Orange (Do this code) */
                 else if (horseRandom[2] === winner[0]) {
                     document.getElementById("winner").innerHTML = 'Orange horse'; 
-                    /* Function soon */
                     if (num === 2) {
-                        let score = parseInt(document.getElementById("scoreCounter").innerHTML);
-                        score += 5;
-                        document.getElementById("scoreCounter").innerHTML = score;
+                        plusScore(score);
                     } else {
-                        let score = parseInt(document.getElementById("scoreCounter").innerHTML);
-                        score -= 3;
-                        document.getElementById("scoreCounter").innerHTML = score;
+                        minusScore(score);
                     }
-                    /* Function soon above */
                 }
-
+                /* If the horse is 3 = White (Do this code) */
                 else if (horseRandom[3] === winner[0]) {
                     document.getElementById("winner").innerHTML = 'White horse'; 
-                    /* Function soon */
                     if (num === 3) {
-                        let score = parseInt(document.getElementById("scoreCounter").innerHTML);
-                        score += 5;
-                        document.getElementById("scoreCounter").innerHTML = score;
+                        plusScore(score);
                     } else {
-                        let score = parseInt(document.getElementById("scoreCounter").innerHTML);
-                        score -= 3;
-                        document.getElementById("scoreCounter").innerHTML = score;
+                        minusScore(score);
                     }
-                    /* Function soon above */
                 }
-
-                    document.getElementById("horse-random").innerHTML = horseRandom; 
+                /* Gets all the numbers from the race */
+                document.getElementById("horse-random").innerHTML = horseRandom; 
             },winner[3]*100);
                 
 
-
+            /* Sets the interval of the time from the random number for each horse */
             let brownID = setInterval(brownFrame, horseRandom[0]);
             let greyID = setInterval(greyFrame, horseRandom[1]);
             let orangeID = setInterval(orangeFrame, horseRandom[2]);
             let whiteID = setInterval(whiteFrame, horseRandom[3]);
 
+            /**
+             * Gets the interval speed for Brown horse and if its not 100% keep going.
+             */
             function brownFrame() {
                 if (brownHorseWidth >= 100) {
                     clearInterval(brownID);
@@ -197,6 +177,9 @@ function sequenceStart(num) {
                 }
             }
 
+            /**
+             * Gets the interval speed for Grey horse and if its not 100% keep going.
+             */
             function greyFrame() {
                 if (greyHorseWidth >= 100) {
                     clearInterval(greyID);
@@ -206,6 +189,9 @@ function sequenceStart(num) {
                 }
             }
 
+            /**
+             * Gets the interval speed for Orange horse and if its not 100% keep going.
+             */
             function orangeFrame() {
                 if (orangeHorseWidth >= 100) {
                     clearInterval(orangeID);
@@ -215,6 +201,9 @@ function sequenceStart(num) {
                 }
             }
 
+            /**
+             * Gets the interval speed for Grey horse and if its not 100% keep going.
+             */
             function whiteFrame() {
                 if (whiteHorseWidth >= 100) {
                     clearInterval(whiteID);
@@ -227,6 +216,24 @@ function sequenceStart(num) {
                 alert("i = " + i + " and num = " + num);
         }
     }
+}
+
+/**
+ * Gets the score from the HTML and increments it by 5.
+ */
+function plusScore(score) {
+    score += 5;
+    document.getElementById("scoreCounter").innerHTML = score;
+    return score;
+}
+
+/**
+ * Gets the score from the HTML and decrease it by 3.
+ */
+function minusScore(score) {
+    score -= 3;
+    document.getElementById("scoreCounter").innerHTML = score;
+    return score;
 }
 
 
